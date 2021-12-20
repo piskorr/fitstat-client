@@ -3,12 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@devexpress/dx-react-chart": "^2.7.6",
+    "@devexpress/dx-react-chart-material-ui": "^2.7.6",
+    "@devexpress/dx-react-core": "^2.7.6",
+    "@emotion/react": "^11.6.0",
+    "@emotion/styled": "^11.6.0",
+    "@material-ui/lab": "^4.0.0-alpha.60",
+    "@mui/core": "^5.0.0-alpha.54",
+    "@mui/icons-material": "^5.2.0",
+    "@mui/lab": "^5.0.0-alpha.59",
+    "@mui/material": "^5.2.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.24.0",
+    "date-fns": "^2.27.0",
+    "keycloak-js": "^15.0.2",
+    "material-ui-image": "^3.3.2",
     "react": "^17.0.2",
+    "react-cookie": "^4.1.1",
     "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
+    "react-router-dom": "^6.0.2",
+    "react-scripts": "^4.0.3",
+    "recharts": "^2.1.6",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -29,6 +46,7 @@
       "not dead",
       "not op_mini all"
     ],
+    "proxy": "http://localhost:8090",
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
