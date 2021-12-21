@@ -118,7 +118,7 @@ const DateArea = () => {
             dataKey="val"
             stroke="#1976d2"
             fill="#1976d2"
-            fillOpacity={0.9}
+            fillOpacity={0.5}
           />
         </AreaChart>
       </ResponsiveContainer>
