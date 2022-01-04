@@ -19,10 +19,10 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import Title from "./Title";
+import Title from "../Title";
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 import Button from "@mui/material/Button";
-import api from "../AxiosInstance";
+import api from "../../AxiosInstance";
 
 const style = {
   display: "flex",

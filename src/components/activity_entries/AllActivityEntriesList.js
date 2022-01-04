@@ -12,8 +12,8 @@ import {
   IconButton,
   Link,
 } from "@mui/material";
-
-import api from "../AxiosInstance";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import api from "../../AxiosInstance";
 
 const style = {
   display: "flex",
@@ -35,17 +35,32 @@ function FirstCapitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-export default function FullActivityList() {
+export default function FullActivityList({ callback }) {
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
   const [activities, setActivities] = useState([]);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => {
+    setOpen(false);
+    callback();
+  };
 
   useEffect(() => {
+    getAll();
+  }, []);
+
+  const getAll = () => {
     api.get("/entries").then((response) => {
       setActivities(response.data);
     });
-  }, []);
+  };
+
+  const handleDelete = async (event, id) => {
+    console.log(id);
+    await api.delete(`/entries/${id}`).then((response) => {
+      console.log(response);
+    });
+    getAll();
+  };
 
   return (
     <React.Fragment>
@@ -67,6 +82,7 @@ export default function FullActivityList() {
                   <TableCell align="left">Date</TableCell>
                   <TableCell align="left">Duration</TableCell>
                   <TableCell align="left">Calories Burned</TableCell>
+                  <TableCell></TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -87,6 +103,13 @@ export default function FullActivityList() {
                         .substr(11, 8)}
                     </TableCell>
                     <TableCell align="left">{row.caloriesBurned}</TableCell>
+                    <TableCell>
+                      <IconButton
+                        onClick={(event) => handleDelete(event, row.id)}
+                      >
+                        <DeleteOutlineIcon />
+                      </IconButton>
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
@@ -97,4 +120,3 @@ export default function FullActivityList() {
     </React.Fragment>
   );
 }
-
