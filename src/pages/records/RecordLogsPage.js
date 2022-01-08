@@ -19,6 +19,7 @@ import { Typography } from "@mui/material";
 import Loading from "components/Loading";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import AllRecordsList from "components/records/AllRecordsList";
 
 export default function RecordLogPage() {
   const [isLoading, setIsLoading] = useState(true);
@@ -125,6 +126,9 @@ export default function RecordLogPage() {
             </Grid>
           </Toolbar>
           <RecordsAlbum records={filteredRecords} />
+          <Toolbar sx={{ mb: 3 }}>
+              <AllRecordsList callback={getAll} />
+            </Toolbar>
         </Paper>
       </Container>
     </React.Fragment>
