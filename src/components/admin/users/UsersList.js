@@ -6,7 +6,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import TableContainer from "@mui/material/TableContainer";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import DoDisturbIcon from '@mui/icons-material/DoDisturb';
+import DoDisturbIcon from "@mui/icons-material/DoDisturb";
 import InfoIcon from "@mui/icons-material/Info";
 import { IconButton, Tooltip } from "@mui/material";
 import api from "../../../AxiosInstance";
@@ -23,8 +23,10 @@ export default function UsersList({ users, callback }) {
 
   const handleDelete = async (event, id) => {
     console.log(id);
-    // let res = await api.delete(`/entries/${id}`);
-    // console.log(res);
+    api.post(`/users/${id}`).then((response) => {
+      callback();
+      console.log(response);
+    });
   };
 
   const handleInfo = async (event, id) => {
@@ -72,11 +74,14 @@ export default function UsersList({ users, callback }) {
                 <TableCell align="left">{row.username}</TableCell>
                 <TableCell align="left">{row.email}</TableCell>
                 <TableCell align="right">
-                  <Tooltip title="Delete">
+                  <Tooltip title="Ban">
                     <IconButton
                       onClick={(event) => handleDelete(event, row.id)}
                     >
-                      <DoDisturbIcon />
+                      {row.deleted && (
+                        <DoDisturbIcon sx={{ color: "#FF0000" }} />
+                      )}
+                      {!row.deleted && <DoDisturbIcon />}
                     </IconButton>
                   </Tooltip>
 

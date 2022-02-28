@@ -24,7 +24,6 @@ export default function WeightLogPage() {
     getAll();
   }, []);
 
-
   const getAll = () => {
     api.get(`/users/weight`).then((response) => {
       setIsLoading(false);
@@ -50,7 +49,9 @@ export default function WeightLogPage() {
         >
           Weight Log
         </Typography>
-        <Paper elevation={5}>{WeightChart(weights)}</Paper>
+        {weights.length > 0 && (
+          <Paper elevation={5}>{WeightChart(weights)}</Paper>
+        )}
       </Container>
       <Container maxWidth="md" sx={{ mt: 5 }}>
         <Grid item xs={12}>

@@ -71,8 +71,8 @@ export default function WeightChart(props) {
   const data = [];
   props.map((d) => data.push(createDate(new Date(d.date).getTime(), d.weight)));
 
-  const startDate = new Date(2021, 11, 200);
-  const endDate = new Date(2021, 11, 31);
+  const startDate = new Date(2022, 2, 200);
+  const endDate = new Date(2022, 1, 28);
 
   const domain = [(dataMin) => dataMin, () => endDate.getTime()];
   const ydomain = [(dataMin) => dataMin - 5, 100];

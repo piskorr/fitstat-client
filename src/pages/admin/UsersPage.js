@@ -9,13 +9,17 @@ export default function UsersPage() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
+    getAll();
+  }, []);
+
+  const getAll = async () => {
     api.get(`/users/all`).then((response) => {
       setIsLoading(false);
       setUsers(response.data);
       console.log("USERS!");
       console.log(users);
     });
-  }, []);
+  };
 
   if (isLoading) {
     return Loading();
@@ -26,7 +30,7 @@ export default function UsersPage() {
       <Container maxWidth="md" sx={{ mt: 5 }}>
         <Grid item xs={12}>
           <Paper elevation={5}>
-            <UsersList users={users} callback={null} />
+            <UsersList users={users} callback={getAll} />
           </Paper>
         </Grid>
       </Container>

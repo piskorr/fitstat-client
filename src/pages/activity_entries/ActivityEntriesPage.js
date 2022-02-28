@@ -62,7 +62,7 @@ export default function ActivityEntriesPage() {
         </Typography>
         <Paper elevation={5}>
           <Toolbar>
-            <Title> Weekly summary:</Title>
+            <Title> Weekly summary (kcal):</Title>
           </Toolbar>
           {BarChartComponent(calories)}
         </Paper>

@@ -22,6 +22,7 @@ import Select from "@mui/material/Select";
 import Title from "../../Title";
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 import Button from "@mui/material/Button";
+import Link from "@material-ui/core/Link";
 
 const style = {
   display: "flex",
@@ -120,6 +121,9 @@ export default function UserInfo({ isOpen, user, handleClick }) {
               variant="standard"
               defaultValue={user.lastName}
             />
+            <Grid item xs={12} sx={{ mb: 4 }}>
+              <Link href="/change-password">Set ADMIN role</Link>
+            </Grid>
           </Box>
         </Paper>
       </MuiThemeProvider>

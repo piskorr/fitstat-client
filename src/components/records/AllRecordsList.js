@@ -56,7 +56,13 @@ export default function AllRecordsList({ callback }) {
     callback();
   };
 
-  const handleDelete = () => {};
+  const handleDelete = async (event, id) => {
+    console.log(id);
+    let res = await api.delete(`/records/${id}`);
+    console.log(res);
+    getAll();
+    callback();
+  };
 
   const handleActivityChange = (event) => {
     setActivity(event.target.value);
@@ -108,62 +114,69 @@ export default function AllRecordsList({ callback }) {
       >
         <Container maxWidth="md" sx={{ mt: 12, mb: 5 }}>
           <Paper sx={style}>
-            <Toolbar>
-              <FormControl variant="standard" style={{ minWidth: 230 }}>
-                <InputLabel id="demo-simple-select-standard-label">
-                  Activity
-                </InputLabel>
-                <Select
-                  labelId="demo-simple-select-standard-label"
-                  id="demo-simple-select-standard"
-                  value={activity}
-                  onChange={handleActivityChange}
-                  color="primary"
-                >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  {activities.map((row) => (
-                    <MenuItem key={row.id} value={row.id}>
-                      {row.name}
+            <Container>
+              <Toolbar>
+                <FormControl variant="standard" style={{ minWidth: 230 }}>
+                  <InputLabel id="demo-simple-select-standard-label">
+                    Activity
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-standard-label"
+                    id="demo-simple-select-standard"
+                    value={activity}
+                    onChange={handleActivityChange}
+                    color="primary"
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
                     </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-            </Toolbar>
-            <TableContainer sx={{ maxHeight: 500 }}>
-              <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                <TableHead>
-                  <TableRow>
-                    <TableCell align="left">Record date</TableCell>
-                    <TableCell align="left">Date</TableCell>
-                    <TableCell align="left">Duration</TableCell>
-                    <TableCell align="left">Calories Burned</TableCell>
-                    <TableCell></TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {records.map((row) => (
-                    <TableRow
-                      key={row.id}
-                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                    >
-                      <TableCell align="left"></TableCell>
-                      <TableCell align="left"></TableCell>
-                      <TableCell align="left"></TableCell>
-                      <TableCell align="left"></TableCell>
-                      <TableCell>
-                        <IconButton
-                          onClick={(event) => handleDelete(event, row.id)}
-                        >
-                          <DeleteOutlineIcon />
-                        </IconButton>
-                      </TableCell>
+                    {activities.map((row) => (
+                      <MenuItem key={row.id} value={row.id}>
+                        {row.name}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Toolbar>
+
+              <TableContainer sx={{ maxHeight: 500 }}>
+                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                  <TableHead>
+                    <TableRow>
+                      <TableCell align="left">Activity</TableCell>
+                      <TableCell align="left">Date</TableCell>
+                      <TableCell align="left">Type</TableCell>
+                      <TableCell align="left">Value</TableCell>
+                      <TableCell></TableCell>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </TableContainer>
+                  </TableHead>
+                  <TableBody>
+                    {records.map((row) => (
+                      <TableRow
+                        key={row.id}
+                        sx={{
+                          "&:last-child td, &:last-child th": { border: 0 },
+                        }}
+                      >
+                        <TableCell align="left">
+                          {row.activityEntity.name}
+                        </TableCell>
+                        <TableCell align="left">{row.recordDate}</TableCell>
+                        <TableCell align="left">{row.unit.unit}</TableCell>
+                        <TableCell align="left">{row.value}</TableCell>
+                        <TableCell>
+                          <IconButton
+                            onClick={(event) => handleDelete(event, row.id)}
+                          >
+                            <DeleteOutlineIcon />
+                          </IconButton>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </Container>
           </Paper>
         </Container>
       </Modal>

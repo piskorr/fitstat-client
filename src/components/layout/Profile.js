@@ -129,8 +129,12 @@ const Profile = (props) => {
                       variant="standard"
                     />
                   </Grid>
+
                   <Grid item xs={12} sx={{ mb: 4 }}>
                     <Link href="/change-password">Change password</Link>
+                  </Grid>
+                  <Grid item xs={12} sx={{ mb: 4 }}>
+                    <Link href="/change-password">Delete account</Link>
                   </Grid>
                 </Grid>
               </Paper>

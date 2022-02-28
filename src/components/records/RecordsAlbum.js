@@ -69,7 +69,7 @@ export default function RecordAlbum({ records }) {
                   <ValueComponent unit={card.unit} value={card.value} />
                 </CardContent>
                 <CardActions>
-                  <Button size="small">View</Button>
+                  <Button size="small">Delete</Button>
                   <Button size="small">Edit</Button>
                 </CardActions>
               </Card>
