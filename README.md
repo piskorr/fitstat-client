@@ -1,7 +1,7 @@
-npm# Getting Started with Create React App
+Fitstat project client module
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-![login page](assets/login.png)
+
 
 ## Available Scripts
 
