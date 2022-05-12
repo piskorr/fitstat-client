@@ -3,19 +3,19 @@
 Fitstat project client module.
 
 ## Screenshots
-
+<p align="center">
 ### Login Page
 
-<img  align="center" src="assets/login.png" alt="J" width="500"/>
+<img  src="assets/login.png" alt="J" width="500"/>
 
 ### Main Panel
 
-<img align="center" src="assets/main_panel.png" alt="J" width="500"/>
+<img src="assets/main_panel.png" alt="J" width="500"/>
 
 ### Weight Panel
 
-<img  align="center" src="assets/weight.png" alt="J" width="500"/>
-
+<img  src="assets/weight.png" alt="J" width="500"/>
+</p.
 ## Available Scripts
 
 In the project directory, you can run:
