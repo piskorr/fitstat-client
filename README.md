@@ -6,7 +6,15 @@ Fitstat project client module.
 
 ### Login Page
 
-<img src="assets/login.png" alt="c" width="700"/>
+<img  align="center" src="assets/login.png" alt="J" width="1000"/>
+
+### Main Panel
+
+<img align="center" src="assets/main_panel.png" alt="J" width="1000"/>
+
+### Weight Panel
+
+<img  align="center" src="assets/weight.png" alt="J" width="1000"/>
 
 ## Available Scripts
 
