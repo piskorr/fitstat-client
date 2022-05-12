@@ -4,8 +4,9 @@ Fitstat project client module.
 
 ## Screenshots
 
-![login page](assets/login.png)
-<img src="assets/login.png" alt="J" width="200"/>
+### Login Page
+
+<img src="assets/login.png" alt="J" width="700"/>
 
 ## Available Scripts
 
